@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Charity Survey • Charity Advisor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="index.html">
+        <img src="assets/logo.svg" alt="Charity Recommender" width="36" height="36" />
+        <span>Charity Advisor</span>
+      </a>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="privacy.html">Privacy</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero compact">
+      <div class="container">
+        <h1>Tell us about your interests and values</h1>
+        <p class="lead">We only keep this information in your browser. Refresh the page to start over.</p>
+      </div>
+    </section>
+
+    <section class="survey" aria-labelledby="survey-title">
+      <div class="container">
+        <div class="survey-layout">
+          <div>
+            <div id="progress" class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="3" aria-valuenow="0">
+              Required questions answered: <span data-count>0</span> / X
+
+           #######################################################
+          </div>
+          <div class="question-group">
+              <label for="q1">1. Which broad values reflect your primary donation interest?</label>
+              <select id="q1">
+                  <option value="" disabled selected>Select an option</option>
+                  <option value="learning">Supporting learning, creativity, and spiritual growth</option>
+                  <option value="health">Addressing physical and mental health needs</option>
+                  <option value="nature">Protecting nature, wildlife, and the planet</option>
+                  <option value="essential">Meeting essential needs and supporting</option>
+                  <option value="society">Advancing society through advocacy, research, and international work</option>
+              </select>
+          </div>
+
+          <div class="question-group">
+              <label for="q2">2. Out of these categories, where would you like to allocate your contribution?</label>
+              <select id="q2" onchange="showQ3()">
+                  <option value="" disabled selected>Select a category</option>
+                  <optgroup label="Learning, Creativity, Spiritual Growth">
+                      <option value="A">Arts, Culture, and Humanities</option>
+                      <option value="B">Education</option>
+                      <option value="X">Religion Related</option>
+                  </optgroup>
+                  <optgroup label="Physical and Mental Health">
+                      <option value="E">Health General and Rehabilitative</option>
+                      <option value="F">Mental Health Crisis Intervention</option>
+                      <option value="G">Disease Disorders Medical Disciplines</option>
+                      <option value="H">Medical Research</option>
+                  </optgroup>
+                  <optgroup label="Nature, Wildlife, Planet">
+                      <option value="C">Environmental Quality Protection and Beautification</option>
+                      <option value="D">Animal Related</option>
+                  </optgroup>
+                  <optgroup label="Essential Needs and Support">
+                      <option value="I">Crime Legal Related</option>
+                      <option value="J">Employment Job Related</option>
+                      <option value="K">Food Agriculture and Nutrition</option>
+                      <option value="L">Housing Shelter</option>
+                      <option value="M">Public Safety Disaster Preparedness and Relief</option>
+                      <option value="N">Recreation Sports Leisure Athletics</option>
+                      <option value="O">Youth Development</option>
+                      <option value="P">Human Services Multipurpose and other</option>
+                  </optgroup>
+                  <optgroup label="Advancing Society">
+                      <option value="Q">International, Foreign Affairs</option>
+                      <option value="R">Civil Rights Social Action Advocacy</option>
+                      <option value="S">Community Improvement Capacity Building</option>
+                      <option value="T">Philanthropy Voluntarism and Grant making Foundations</option>
+                      <option value="U">Science and Technology Research Institutes Services</option>
+                      <option value="V">Social Science Research Institutes</option>
+                      <option value="W">Public Society Benefit Multipurpose</option>
+                      <option value="Y">Mutual/Membership Benefit</option>
+                  </optgroup>
+              </select>
+          </div>
+
+          <div id="q3-container" class="question-group hidden">
+              <h2>Question 3 - Specific Focus</h2>
+
+              <div id="q3-A" class="q3-option hidden">
+                  <label for="q3-A-select">3. What is the specific artistic or cultural area you are most interested in supporting?</label>
+                  <select id="q3-A-select">
+                      <option value="" disabled selected>Select a specific area</option>
+                      <option value="A0">Museums & Historical Preservation</option>
+                      <option value="A1">Performing Arts</option>
+                      <option value="A2">Media & Communication</option>
+                      <option value="A3">General Arts, Culture & Education</option>
+                      <option value="A4">Support for Arts Groups</option>
+                  </select>
+              </div>
+
+              <div id="q3-B" class="q3-option hidden">
+                  <label for="q3-B-select">3. What level or type of educational service are you most interested in supporting?</label>
+                  <select id="q3-B-select">
+                      <option value="" disabled selected>Select a specific area</option>
+                      <option value="B0">K-12 and Specialized Schools</option>
+                      <option value="B1">Higher Education & Vocational Training</option>
+                      <option value="B2">Libraries and Student Support Services</option>
+                      <option value="B3">General Educational Programs</option>
+                      <option value="B4">Education Infrastructure & Research</option>
+                  </select>
+              </div>
+
+              <div id="q3-X" class="q3-option hidden">
+                  <label for="q3-X-select">3. What is the specific religious focus or functional area you want to support?</label>
+                  <select id="q3-X-select">
+                      <option value="" disabled selected>Select a specific area</option>
+                      <option value="X0">Specific Religious Denomination</option>
+                      <option value="X1">Religious Media & Communications</option>
+                      <option value="X2">Interfaith & General religious services</option>
+                      <option value="X3">Support & Infrastructure for Religion</option>
+                  </select>
+              </div>
+
+              <div id="q3-E" class="q3-option hidden">
+                  <label for="q3-E-select">3. What is the specific setting or type of general health care you want to support?</label>
+                  <select id="q3-E-select">
+                      <option value="" disabled selected>Select a specific area</option>
+                      <option value="E0">Hospital & Inpatient Care</option>
+                      <option value="E1">Outpatient & Community Clinics</option>
+                      <option value="E2">Long-Term & Home Care</option>
+                      <option value="E3">Specialized Medical Support</option>
+                      <option value="E4">Health Infrastructure & Policy</option>
+                  </select>
+              </div>
+
+              <div id="q3-F" class="q3-option hidden">
+                  <label for="q3-F-select">3. What is the specific type of mental health need or service you want to support?</label>
+                  <select id="q3-F-select">
+                      <option value="" disabled selected>Select a specific area</option>
+                      <option value="F0">Addiction & Substance Abuse</option>
+                      <option value="F1">General Mental Health Treatment</option>
+                      <option value="F2">Crisis Intervention & Counseling</option>
+                      <option value="F3">Mental Health Infrastructure & Policy</option>
+                  </select>
+              </div>
+
+              <div id="q3-G" class="q3-option hidden">
+                  <label for="q3-G-select">3. What is the primary medical focus or function you are interested in supporting?</label>
+                  <select id="q3-G-select">
+                      <option value="" disabled selected>Select a specific area</option>
+                      <option value="G0">Diseases of Specific Organ Systems</option>
+                      <option value="G1">Genetic, Birth Defects, and Specific Named Diseases</option>
+                      <option value="G2">Medical Disciplines & Specialties</option>
+                      <option value="G3">Support & Infrastructure for Disease Organizations</option>
+                      <option value="G4">Policy, Advocacy & Professional Support</option>
+                  </select>
+              </div>
+
+              <div id="q3-H" class="q3-option hidden">
+                  <label for="q3-H-select">3. What is the specific subject area or function of medical research you want to support?</label>
+                  <select id="q3-H-select">
+                      <option value="" disabled selected>Select a specific area</option>
+                      <option value="H0">Research on Specific Diseases & Defects</option>
+                      <option value="H1">Research on Organ & System Disorders</option>
+                      <option value="H2">Medical Specialty & Discipline Research</option>
+                      <option value="H3">Research Infrastructure & Policy</option>
+                  </select>
+              </div>
+
+              <div id="q3-C" class="q3-option hidden">
+                  <label for="q3-C-select">3. What is the specific environmental goal or activity you want to support?</label>
+                  <select id="q3-C-select">
+                      <option value="" disabled selected>Select a specific area</option>
+                      <option value="C0">Pollution & Resource Management</option>
+                      <option value="C1">Land & Habitat Conservation</option>
+                      <option value="C2">Beautification & Education</option>
+                      <option value="C3">Environmental Infrastructure & Policy</option>
+                  </select>
+              </div>
+
+              <div id="q3-D" class="q3-option hidden">
+                  <label for="q3-D-select">3. What is the specific type of animal or activity you want to support?</label>
+                  <select id="q3-D-select">
+                      <option value="" disabled selected>Select a specific area</option>
+                      <option value="D0">Domestic & Companion Animal Welfare</option>
+                      <option value="D1">Wildlife Conservation & Sanctuaries</option>
+                      <option value="D2">Animal Facilities & General Services</option>
+                      <option value="D3">Animal Support & Infrastructure</option>
+                  </select>
+              </div>
+
+              <div id="q3-I" class="q3-option hidden">
+                  <label for="q3-I-select">3. Which aspect of the crime and legal system are you most interested in supporting?</label>
+                  <select id="q3-I-select">
+                      <option value="" disabled selected>Select a specific area</option>
+                      <option value="I0">Prevention and Protection</option>
+                      <option value="I1">Correctional & Re-Entry Services</option>
+                      <option value="I2">Law Enforcement & Judicial Administration</option>
+                      <option value="I3">Legal Services</option>
+                      <option value="I4">Infrastructure & Policy</option>
+                  </select>
+              </div>
+
+              <div id="q3-J" class="q3-option hidden">
+                  <label for="q3-J-select">3. What is the specific type of employment service you want to support?</label>
+                  <select id="q3-J-select">
+                      <option value="" disabled selected>Select a specific area</option>
+                      <option value="J0">Job Training & Placement</option>
+                      <option value="J1">Vocational Rehabilitation & Supported Work</option>
+                      <option value="J2">Labor & Professional Organizations</option>
+                      <option value="J3">Infrastructure & Policy</option>
+                  </select>
+              </div>
+
+              <div id="q3-K" class="q3-option hidden">
+                  <label for="q3-K-select">3. Which specific area related to food, agriculture, or nutrition are you most interested in supporting?</label>
+                  <select id="q3-K-select">
+                      <option value="" disabled selected>Select a specific area</option>
+                      <option value="K0">Hunger Relief & Food Service</option>
+                      <option value="K1">Agriculture & Food Production</option>
+                      <option value="K2">Nutrition & Home Economics</option>
+                      <option value="K3">Infrastructure & Policy</option>
+                  </select>
+              </div>
+
+              <div id="q3-L" class="q3-option hidden">
+                  <label for="q3-L-select">3. What specific aspect of housing and shelter are you most interested in supporting?</label>
+                  <select id="q3-L-select">
+                      <option value="" disabled selected>Select a specific area</option>
+                      <option value="L0">Development & Long-Term Housing</option>
+                      <option value="L1">Emergency & Temporary Shelter</option>
+                      <option value="L2">Housing Support Services</option>
+                      <option value="L3">Infrastructure & Policy</option>
+                  </select>
+              </div>
+
+              <div id="q3-M" class="q3-option hidden">
+                  <label for="q3-M-select">3. What specific aspect of public safety or emergency management are you most interested in supporting?</label>
+                  <select id="q3-M-select">
+                      <option value="" disabled selected>Select a specific area</option>
+                      <option value="M0">Emergency Response & Relief</option>
+                      <option value="M1">Safety and Prevention</option>
+                      <option value="M2">Infrastructure & Policy</option>
+                  </select>
+              </div>
+
+              <div id="q3-N" class="q3-option hidden">
+                  <label for="q3-N-select">3. What is the specific type of sports, leisure, or recreation activity you want to support?</label>
+                  <select id="q3-N-select">
+                      <option value="" disabled selected>Select a specific area</option>
+                      <option value="N0">Facilities & General Recreation</option>
+                      <option value="N1">Amateur Sports & Clubs</option>
+                      <option value="N2">Sport Competitions & Events</option>
+                      <option value="N3">Professional Sports & Athletics</option>
+                      <option value="N4">Infrastructure & Policy</option>
+                  </select>
+              </div>
+
+              <div id="q3-O" class="q3-option hidden">
+                  <label for="q3-O-select">3. What specific focus of youth development do you want to support?</label>
+                  <select id="q3-O-select">
+                      <option value="" disabled selected>Select a specific area</option>
+                      <option value="O0">Youth Centers & Clubs</option>
+                      <option value="O1">Mentoring & Core Membership Programs</option>
+                      <option value="O2">Specific Development Programs</option>
+                      <option value="O3">Infrastructure & Policy</option>
+                  </select>
+              </div>
+
+              <div id="q3-P" class="q3-option hidden">
+                  <label for="q3-P-select">3. What is the primary population you want to support?</label>
+                  <select id="q3-P-select">
+                      <option value="" disabled selected>Select a specific area</option>
+                      <option value="P0">Family & Child Services</option>
+                      <option value="P1">Services for Specific Populations</option>
+                      <option value="P2">Emergency & Basic Assistance</option>
+                      <option value="P3">Residential & Custodial Care</option>
+                      <option value="P4">Multipurpose & Personal Services</option>
+                      <option value="P5">Infrastructure & Policy</option>
+                  </select>
+              </div>
+
+              <div id="q3-Q" class="q3-option hidden">
+                  <label for="q3-Q-select">3. What is the specific focus of your international donation interest?</label>
+                  <select id="q3-Q-select">
+                      <option value="" disabled selected>Select a specific area</option>
+                      <option value="Q0">International Aid & Development</option>
+                      <option value="Q1">International Understanding & Exchange</option>
+                      <option value="Q2">Peace, Security, and Foreign Policy</option>
+                      <option value="Q3">Infrastructure & Policy</option>
+                  </select>
+              </div>
+
+              <div id="q3-R" class="q3-option hidden">
+                  <label for="q3-R-select">3. What is the primary subject of the social action you want to support?</label>
+                  <select id="q3-R-select">
+                      <option value="" disabled selected>Select a specific area</option>
+                      <option value="R0">Rights for Specific Groups</option>
+                      <option value="R1">Civil Liberties & Social Issues</option>
+                      <option value="R2">Infrastructure & Policy</option>
+                  </select>
+              </div>
+
+              <div id="q3-S" class="q3-option hidden">
+                  <label for="q3-S-select">3. What is the primary area of community development or improvement you want to support?</label>
+                  <select id="q3-S-select">
+                      <option value="" disabled selected>Select a specific area</option>
+                      <option value="S0">Community & Neighborhood Improvement</option>
+                      <option value="S1">Economic & Rural Development</option>
+                      <option value="S2">Business, Industry & Service</option>
+                      <option value="S3">Infrastructure & Policy</option>
+                  </select>
+              </div>
+
+              <div id="q3-T" class="q3-option hidden">
+                  <label for="q3-T-select">3. What is the specific type of foundation you want to support?</label>
+                  <select id="q3-T-select">
+                      <option value="" disabled selected>Select a specific area</option>
+                      <option value="T0">Private Grantmaking Foundations</option>
+                      <option value="T1">Public Foundations & Giving</option>
+                      <option value="T2">Voluntarism & Promotion</option>
+                      <option value="T3">Philanthropic Infrastructure & Policy</option>
+                  </select>
+              </div>
+
+              <div id="q3-U" class="q3-option hidden">
+                  <label for="q3-U-select">3. Which specific scientific discipline or focus of the research you want to support?</label>
+                  <select id="q3-U-select">
+                      <option value="" disabled selected>Select a specific area</option>
+                      <option value="U0">Physical & Earth Sciences</option>
+                      <option value="U1">Engineering & Applied Technology</option>
+                      <option value="U2">Biological & Life Sciences</option>
+                      <option value="U3">Infrastructure & Policy</option>
+                  </select>
+              </div>
+
+              <div id="q3-V" class="q3-option hidden">
+                  <label for="q3-V-select">3. Which specific discipline of social science research do you want to support?</label>
+                  <select id="q3-V-select">
+                      <option value="" disabled selected>Select a specific area</option>
+                      <option value="V0">Traditional Social Sciences</option>
+                      <option value="V1">Interdisciplinary & Area Studies</option>
+                      <option value="V2">Infrastructure & Policy</option>
+                  </select>
+              </div>
+
+              <div id="q3-W" class="q3-option hidden">
+                  <label for="q3-W-select">3. What specific area of public benefit or civic affair are you most interested in supporting?</label>
+                  <select id="q3-W-select">
+                      <option value="" disabled selected>Select a specific area</option>
+                      <option value="W0">Consumer Protection & Civic Affairs</option>
+                      <option value="W1">Under-Represented Populations</option>
+                      <option value="W2">Infrastructure & Policy</option>
+                  </select>
+              </div>
+
+              <div id="q3-Y" class="q3-option hidden">
+                  <label for="q3-Y-select">3. What type of membership or mutual benefit organization do you want to support?</label>
+                  <select id="q3-Y-select">
+                      <option value="" disabled selected>Select a specific area</option>
+                      <option value="Y0">Benefit & Mutual Aid</option>
+                      <option value="Y1">Associations & Alliances</option>
+                      <option value="Y2">Political & Public Administration</option>
+                      <option value="Y3">Infrastructure & Management</option>
+                  </select>
+              </div>
+
+          </div>
+          
+          <div class="question-group">
+              <label for="q4">4. Is locality important for your donation? If so, which state would you like to focus your donation?</label>
+              <select id="q4">
+                  <option value="" disabled selected>Select a state or choose 'No'</option>
+                  <option value="No">No, locality is not important</option>
+                  <option value="AL">Alabama</option>
+                  <option value="AK">Alaska</option>
+                  <option value="CA">California</option>
+                  <option value="NY">New York</option>
+                  <option value="TX">Texas</option>
+              </select>
+          </div>
+
+          <script>
+              function showQ3() {
+                  const q2Select = document.getElementById('q2');
+                  const selectedCategory = q2Select.value; // e.g., 'A', 'B', 'E', etc.
+                  const q3Container = document.getElementById('q3-container');
+                  const allQ3Options = document.querySelectorAll('.q3-option');
+
+                  // 1. Hide the main Q3 container if nothing is selected
+                  if (!selectedCategory) {
+                      q3Container.classList.add('hidden');
+                      return;
+                  }
+
+                  // 2. Show the main Q3 container
+                  q3Container.classList.remove('hidden');
+
+                  // 3. Loop through all Q3 options and hide them
+                  allQ3Options.forEach(option => {
+                      option.classList.add('hidden');
+                  });
+
+                  // 4. Show only the corresponding Q3 option
+                  const targetQ3 = document.getElementById('q3-' + selectedCategory);
+                  if (targetQ3) {
+                      targetQ3.classList.remove('hidden');
+                  }
+              }
+
+              // Initialize: Hide the Q3 container when the page loads
+              document.addEventListener('DOMContentLoaded', () => {
+                  document.getElementById('q3-container').classList.add('hidden');
+              });
+          </script>
+            #######################################################
+            <div class="survey-actions">
+              <button id="submit-survey" class="button primary" type="button">Get Recommendations</button>
+              <button id="reset-survey" class="button secondary" type="button">Start Over</button>
+            </div>
+
+</body>
+</html>
+           
+           #######################################################
+
+          <div class="results-panel" aria-live="polite">
+            <h2 id="results-heading" class="visually-hidden" tabindex="-1">Recommendation results</h2>
+            <div id="survey-error" class="alert" role="status" aria-live="polite" hidden></div>
+            <div id="results" role="list" class="card-stack" aria-live="polite"></div>
+            <button id="load-more" class="button secondary" type="button" hidden disabled>Load more</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>_____</p>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="privacy.html">Privacy</a>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="assets/survey.js"></script>
+</body>
+</html>

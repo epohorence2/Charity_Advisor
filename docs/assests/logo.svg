@@ -1,0 +1,10 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Charity Recommender logo">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2e65f7" />
+      <stop offset="100%" stop-color="#7f78ff" />
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="url(#grad)" />
+  <path d="M20 28c0-4.418 3.582-8 8-8 2.94 0 5.5 1.62 6.88 4.02C36.26 21.62 38.82 20 41.76 20 46.18 20 50 23.82 50 28.24c0 3.04-1.58 5.7-3.98 7.12L32 48 23.98 35.36C21.58 33.94 20 31.28 20 28z" fill="#fff" />
+</svg>

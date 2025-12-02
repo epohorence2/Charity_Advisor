@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Charity Advisor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="index.html">
+        <img src="assets/logo.svg" alt="Charity Advisor" width="36" height="36" />
+        <span>Charity Advisor</span>
+      </a>
+      <nav>
+        <a href="survey.html">Survey</a>
+        <a href="privacy.html">Privacy</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container grid">
+        <div>
+          <p class="eyebrow">Give with Purpose</p>
+          <h1 id="hero-title">Personalized charity recommendations in just a few minutes</h1>
+          <p class="lead">
+            Fill out our quick survey and we will return personalized organizations that match your 
+            interests, values, and preferred ways to donate.
+          </p>
+          <div class="hero-cta">
+            <a id="cta-start" class="button" href="survey.html">Start the survey</a>
+          </div>
+        </div>
+       
+      </div>
+    </section>
+
+    <section class="how-it-works" id="how-it-works">
+      <div class="container">
+        <h2>How it works</h2>
+        <ol class="steps">
+          <p class="lead">
+            Our curated survey matches your responses to one or more of the IRS's National Taxonomy of Exempt Entities
+            (NTEE) codes. These codes contain identifying information about a charity such as their main cause and 
+            specific focus. Then, using the Ever.org API we filter for results with the matched NTEE codes and few other
+            variables. 
+
+            Don't like your first three results? Click the Load More button to bring up new charity recommendations.  
+
+          </p>
+        </ol>
+      </div>
+    </section>
+
+    <section class="daily-picks" aria-labelledby="daily-heading">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <h2 id="daily-heading">Featured charities</h2>
+          </div>
+          <p class="muted">A random set of three charities rotated daily</p>
+        </div>
+        <div id="daily-error" class="alert" role="status" aria-live="polite" hidden></div>
+        <div id="daily-picks" class="card-grid" aria-live="polite" aria-busy="true"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>____</p>
+      <div class="footer-links">
+        <a href="survey.html">Survey</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="https://docs.every.org/docs/endpoints/nonprofit-search" rel="noreferrer">Data source</a>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="assets/app.js"></script>
+</body>
+</html>
